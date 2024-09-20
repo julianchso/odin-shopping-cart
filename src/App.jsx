@@ -1,17 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Root from './routes/root';
-import Index from './routes';
 import Home from './routes/home';
 import Shop from './routes/shop';
-import './index.css';
-import './App.css';
+import './app.css';
+import './reset.css';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
     children: [
-      { index: true, element: <Index /> },
+      {
+        path: '/',
+        element: <Home />,
+      },
       {
         path: '/home',
         element: <Home />,
@@ -22,10 +24,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: 'home',
-  //   element: <Home />,
-  // },
 ]);
 
 export default router;
