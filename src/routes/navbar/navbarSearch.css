@@ -1,11 +1,32 @@
-.searchInput {
-  padding: 20px 0;
+.navbarSearch {
   border-radius: 20px;
+  background-color: rgba(220, 220, 220);
+  display: flex;
+  align-items: center;
+  &:hover .searchBtn {
+    background-color: rgba(200, 200, 200);
+  }
+
+  &:hover .searchInput {
+    background-color: rgba(200, 200, 200);
+  }
+
+  &:hover {
+    background-color: rgba(200, 200, 200);
+  }
+}
+
+.searchInput {
+  padding: 10px 20px;
   border: none;
   outline: none;
+  border-radius: 20px;
+  background-color: rgba(220, 220, 220);
+  font-size: 18px;
 }
 
 .searchBtn {
   background: none;
   border: none;
+  padding-right: 10px;
 }

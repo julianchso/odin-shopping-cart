@@ -4,7 +4,7 @@ import './navbarSearch.css';
 
 export default function NavbarSearch() {
   return (
-    <>
+    <div className='navbarSearch'>
       <form action='' role='search'>
         <input
           className='searchInput'
@@ -18,6 +18,6 @@ export default function NavbarSearch() {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </form>
-    </>
+    </div>
   );
 }

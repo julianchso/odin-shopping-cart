@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import NavbarSearch from './navbarSearch';
+import '../../app.css';
 import './navbar.css';
 
 export default function Navbar() {
@@ -9,7 +10,7 @@ export default function Navbar() {
     <>
       <nav className='navbar'>
         <div className='navbarLeft'>
-          <ul>
+          <ul className='navbarBtn'>
             <li>
               <Link to={`home`}>Home</Link>
             </li>
