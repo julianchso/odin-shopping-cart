@@ -1,6 +1,8 @@
-export default function Card({ sprite }) {
+import './card.css';
+
+export default function Card({ name, sprite, type }) {
   return (
-    <div>
+    <div className='cardContainer'>
       <div></div>
     </div>
   );

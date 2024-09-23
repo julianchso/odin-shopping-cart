@@ -1,7 +1,7 @@
 import SidebarElement from './sidebarElement';
 import SidebarType from './sidebarType';
 
-export default function sidebar() {
+export default function Sidebar() {
   return (
     <>
       <div className='sidebar'>

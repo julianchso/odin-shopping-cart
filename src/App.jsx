@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Root from './routes/root';
 import Home from './routes/home';
 import Shop from './routes/shop';
+import Sidebar from './routes/sidebar/sidebar';
 import './app.css';
 import './reset.css';
 
