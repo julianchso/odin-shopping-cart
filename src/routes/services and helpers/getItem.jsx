@@ -1,26 +1,42 @@
 import { useEffect, useState } from 'react';
 
 export default function GetItemName() {
-  const [pokeItem, setPokeItem] = useState([]);
+  const pokeItem = [];
+  const [pokeItemDetail, setPokeItemDetail] = useState([]);
+  const limit = 10;
 
   useEffect(() => {
-    // fetch pokemon name
-    const url = 'https://pokeapi.co/api/v2/item?limit=150&offset=0';
+    // fetch item name
+    const url = `https://pokeapi.co/api/v2/item?limit=${limit}&offset=0`;
     fetch(url, { mode: 'cors' })
       .then((response) => response.json())
       .then((data) => {
-        setPokeItem(data.results);
-        console.log(data.results);
-      });
+        for (let i = 0; i < limit; i++) {
+          pokeItem.push(data.results);
+        }
+      })
+      // .then(() => {
+      //   Promise.all(
+      //     pokeItemUrl.map((url) =>
+      //       fetch(url).then((response) =>
+      //         response.json().then((data) => {
+      //           console.log(data); // setPokeItemDetail();
+      //         })
+      //       )
+      //     )
+      //   );
+      // })
+      .catch((e) => console.error(e));
+    console.log(pokeItem);
   }, []);
 
-  const itemList = pokeItem.map((pokeItem) => {
-    return <li key={pokeItem.name}>{pokeItem.name}</li>;
-  });
+  // const itemList = pokeItem.map((pokeItem) => {
+  //   return <li key={pokeItem.name}>{pokeItem.name}</li>;
+  // });
 
-  return (
-    <>
-      <div className='gridContainer'>{<ul>{itemList}</ul>}</div>
-    </>
-  );
+  // return (
+  //   <>
+  //     <div className='gridContainer'>{<ul>{itemList}</ul>}</div>
+  //   </>
+  // );
 }
