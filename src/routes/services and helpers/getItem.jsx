@@ -1,42 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import Card from '../bodySection/card';
 
 export default function GetItemName() {
-  const pokeItem = [];
-  const [pokeItemDetail, setPokeItemDetail] = useState([]);
+  const [pokeItem, setPokeItem] = useState([]);
   const limit = 10;
+  const url = `https://pokeapi.co/api/v2/item?limit=${limit}&offset=0`;
 
-  useEffect(() => {
-    // fetch item name
-    const url = `https://pokeapi.co/api/v2/item?limit=${limit}&offset=0`;
-    fetch(url, { mode: 'cors' })
+  // fetch item name
+  async function fetchData() {
+    await fetch(url, { mode: 'cors' })
       .then((response) => response.json())
       .then((data) => {
-        for (let i = 0; i < limit; i++) {
-          pokeItem.push(data.results);
-        }
+        setPokeItem(data.results);
       })
-      // .then(() => {
-      //   Promise.all(
-      //     pokeItemUrl.map((url) =>
-      //       fetch(url).then((response) =>
-      //         response.json().then((data) => {
-      //           console.log(data); // setPokeItemDetail();
-      //         })
-      //       )
-      //     )
-      //   );
-      // })
       .catch((e) => console.error(e));
-    console.log(pokeItem);
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
-  // const itemList = pokeItem.map((pokeItem) => {
-  //   return <li key={pokeItem.name}>{pokeItem.name}</li>;
-  // });
+  // This is running ASAP. It is not waiting for the API call.
+  const itemList = pokeItem.map((item) => {
+    return <li key={item.name}>{item.name}</li>;
+  });
 
-  // return (
-  //   <>
-  //     <div className='gridContainer'>{<ul>{itemList}</ul>}</div>
-  //   </>
-  // );
+  return (
+    <>
+      <div className='gridContainer'>{<ul>{itemList}</ul>}</div>
+    </>
+  );
 }

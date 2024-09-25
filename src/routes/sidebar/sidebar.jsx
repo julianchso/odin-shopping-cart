@@ -1,12 +1,11 @@
-import SidebarElement from './sidebarElement';
-import SidebarType from './sidebarType';
+import SidebarCategory from './sidebarCategory';
+import './sidebar.css';
 
 export default function Sidebar() {
   return (
     <>
       <div className='sidebar'>
-        <SidebarElement />
-        <SidebarType />
+        <SidebarCategory />
       </div>
     </>
   );

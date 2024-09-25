@@ -1,4 +1,4 @@
-export default function SidebarElement() {
+export default function SidebarCategory() {
   return (
     <div>
       <div>This is the sidebar</div>
