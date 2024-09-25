@@ -23,6 +23,7 @@ export default function GetItemName() {
   // This is running ASAP. It is not waiting for the API call.
   const itemList = pokeItem.map((item) => {
     return <li key={item.name}>{item.name}</li>;
+    // return Card({item.name})
   });
 
   return (
@@ -31,3 +32,15 @@ export default function GetItemName() {
     </>
   );
 }
+
+// function Card({ name, png, price }) {
+//   return (
+//     <button>
+//       <div className='cardContainer'>
+//         <div className='cardImg'></div>
+//         <div className='cardName'></div>
+//         <div className='cardPrice'></div>
+//       </div>
+//     </button>
+//   );
+// }
