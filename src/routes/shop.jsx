@@ -1,12 +1,12 @@
-import Body from './bodySection/body';
+import ItemSection from './bodySection/itemSection';
 import Sidebar from './sidebar/sidebar';
 import './shop.css';
 
-export default function Shop() {
+export default function shop() {
   return (
     <div className='shop'>
-      <Sidebar />
-      <Body />
+      <Sidebar className='sidebar' />
+      <ItemSection className='body' />
     </div>
   );
 }

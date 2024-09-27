@@ -1,14 +1,23 @@
-import './card.css';
 import GetItemName from '../services and helpers/getItem';
+import PropTypes from 'prop-types';
 
-export default function Card({ name, png, price }) {
+import '../../global.css';
+import './card.css';
+
+export default function Card({ item }) {
+  const name = item.name;
+
   return (
     <button>
-      <div className='cardContainer'>
-        <div className='cardImg'></div>
-        <div className='cardName'></div>
-        <div className='cardPrice'></div>
-      </div>
+      <li>
+        {/* <div className='cardImg'>{item.img}</div> */}
+        <div className='cardName'>{name}</div>
+        {/* <div className='cardPrice'>{item.price}</div> */}
+      </li>
     </button>
   );
 }
+
+Card.propTypes = {
+  item: PropTypes.object,
+};

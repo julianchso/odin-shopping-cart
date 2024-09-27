@@ -1,3 +1,9 @@
-.store {
+.shop {
   display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.sidebar {
+  height: 100%;
 }

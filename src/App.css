@@ -6,10 +6,6 @@
   width: 100%;
 }
 
-button {
-  cursor: pointer;
-}
-
 body {
   font-family: 'Poppins', sans-serif, Arial, Helvetica;
   font-weight: 400;

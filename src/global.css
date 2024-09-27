@@ -1,0 +1,14 @@
+button {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  background: none;
+}

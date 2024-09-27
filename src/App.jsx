@@ -3,8 +3,10 @@ import Root from './routes/root';
 import Home from './routes/home';
 import Shop from './routes/shop';
 import Sidebar from './routes/sidebar/sidebar';
-import './app.css';
+
 import './reset.css';
+import './global.css';
+import './app.css';
 
 const router = createBrowserRouter([
   {
