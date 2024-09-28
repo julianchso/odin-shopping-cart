@@ -1,3 +1,18 @@
+.itemSection {
+  height: 100%;
+  width: 100%;
+  max-width: 1600px;
+  padding: 0 50px;
+}
+
 .itemGridContainer {
   display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, auto);
+  grid-template-rows: auto;
+  grid-gap: 18px;
+}
+
+.itemCard {
+  grid-column: 1 / -1;
 }

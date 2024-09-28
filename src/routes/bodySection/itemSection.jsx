@@ -12,10 +12,10 @@ export default function ItemSection() {
 
   return (
     <>
-      <div className='itemGridContainer'>
-        <ul>
+      <div className='itemSection'>
+        <ul className='itemGridContainer'>
           {items.map((item) => {
-            return <Card item={item} key={item.id} />;
+            return <Card item={item} key={item.id} className='itemCard' />;
           })}
         </ul>
       </div>

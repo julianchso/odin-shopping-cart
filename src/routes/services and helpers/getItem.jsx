@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import Card from '../bodySection/card';
 
 export default function GetItemName() {
   const [pokeItem, setPokeItem] = useState([]);
