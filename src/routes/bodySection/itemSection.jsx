@@ -15,6 +15,8 @@ export default function ItemSection() {
       <div className='itemSection'>
         <ul className='itemGridContainer'>
           {items.map((item) => {
+            // const itemPrice = FetchItemPrice(item);
+            // return <Card item={item} key={item.id} price={itemPrice} className='itemCard' />;
             return <Card item={item} key={item.id} className='itemCard' />;
           })}
         </ul>
