@@ -1,24 +1,31 @@
 import Card from './card';
-import GetItemName from '../services and helpers/getItem';
+import { FetchItemName } from '../services and helpers/fetchItem';
 import PropTypes from 'prop-types';
 
 import '../../global.css';
 import './itemSection.css';
 
 export default function ItemSection() {
-  const items = GetItemName();
+  const getItems = async () => {
+    const items = await FetchItemName();
+    console.log(typeof items);
+    console.log(items);
+    return items;
+  };
 
-  console.log(items);
+  const getItemsfn = getItems();
+  console.log(getItemsfn);
+  // const items = await FetchItemName();
+
+  // console.log(items);
 
   return (
     <>
       <div className='itemSection'>
         <ul className='itemGridContainer'>
-          {items.map((item) => {
-            // const itemPrice = FetchItemPrice(item);
-            // return <Card item={item} key={item.id} price={itemPrice} className='itemCard' />;
-            return <Card item={item} key={item.id} className='itemCard' />;
-          })}
+          {/* {getItems.map((item) => {
+            return <Card item={item.name} key={item.id} className='itemCard' />;
+          })} */}
         </ul>
       </div>
     </>

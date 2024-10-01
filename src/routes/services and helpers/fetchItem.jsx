@@ -23,15 +23,17 @@ function FetchItemName() {
   return pokeItem;
 }
 
-function FetchItemPrice(itemName) {
-  const [pokeItemPrice, setPokeItemPrice] = useState([]);
+function FetchItemDetail(itemName) {
+  let pokeItemDetail = [];
+  // const [pokeItemDetail, setPokeItemDetail] = useState([]);
   const url = `https://pokeapi.co/api/v2/item/${itemName}`;
 
   async function fetchItemPrice() {
     await fetch(url, { mode: 'cors' })
       .then((response) => response.json())
       .then((data) => {
-        setPokeItemPrice(data);
+        pokeItemDetail = data;
+        console.log(pokeItemDetail);
       })
       .catch((e) => console.log(e));
   }
@@ -40,7 +42,8 @@ function FetchItemPrice(itemName) {
     fetchItemPrice();
   }, []);
 
-  return pokeItemPrice;
+  // console.log(pokeItemDetail);
+  return pokeItemDetail;
 }
 
-export { FetchItemName, FetchItemPrice };
+export { FetchItemName, FetchItemDetail };
