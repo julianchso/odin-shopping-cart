@@ -13,12 +13,6 @@ export default function ItemSection() {
     return items;
   };
 
-  const getItemsfn = getItems();
-  console.log(getItemsfn);
-  // const items = await FetchItemName();
-
-  // console.log(items);
-
   return (
     <>
       <div className='itemSection'>
