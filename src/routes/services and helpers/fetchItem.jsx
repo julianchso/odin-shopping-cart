@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 const useFetchItemName = () => {
   const [pokeItem, setPokeItem] = useState([]);
 
-  const limit = 10;
+  const limit = 2;
   const url = `https://pokeapi.co/api/v2/item?limit=${limit}&offset=0`;
 
   useEffect(() => {
@@ -15,28 +15,10 @@ const useFetchItemName = () => {
       });
   }, [url]);
 
-  console.log([pokeItem]);
-  return [pokeItem];
+  return pokeItem;
 };
 
-const fetchItemName = async () => {
-  const limit = 10;
-  const url = `https://pokeapi.co/api/v2/item?limit=${limit}&offset=0`;
-  // console.log(pokeItem);
-  let pokeItems = [];
-
-  // fetch item name
-  await fetch(url, { mode: 'cors' })
-    .then((response) => response.json())
-    .then((data) => {
-      pokeItems = data.results;
-    })
-    .catch((e) => console.error(e));
-
-  return pokeItems;
-};
-
-const fetchItemDetail = async (itemName) => {
+const useFetchItemDetail = async (itemName) => {
   const url = `https://pokeapi.co/api/v2/item/${itemName}`;
 
   await fetch(url, { mode: 'cors' })
@@ -48,4 +30,4 @@ const fetchItemDetail = async (itemName) => {
     .catch((e) => console.log(e));
 };
 
-export { fetchItemName, fetchItemDetail, useFetchItemName };
+export { useFetchItemName, useFetchItemDetail };

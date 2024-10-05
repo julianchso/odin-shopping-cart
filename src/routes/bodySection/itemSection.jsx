@@ -8,29 +8,14 @@ import '../../global.css';
 import './itemSection.css';
 
 export default function ItemSection() {
-  useEffect(() => {
-    const items = useFetchItemName();
-  }, []);
-
-  const PokeItems = async () => {
-    const items = await useFetchItemName();
-    console.log(items);
-    return items;
-  };
-
-  const items = useFetchItemName;
-
-  PokeItems();
+  const pokeItems = useFetchItemName();
+  console.log(pokeItems);
 
   return (
     <>
       <div className='itemSection'>
-        <h1>This is the item section</h1>
         <ul className='itemGridContainer'>
-          <h1>This is inside the grid container</h1>
-          {Object.values(items).map((item) => {
-            console.log(item);
-            console.log('This is the card in the item section');
+          {Object.values(pokeItems).map((item) => {
             return <Card item={item} key={item.id} className='itemCard' />;
           })}
         </ul>
@@ -40,5 +25,5 @@ export default function ItemSection() {
 }
 
 ItemSection.propTypes = {
-  PokeItems: PropTypes.object,
+  pokeItems: PropTypes.object,
 };

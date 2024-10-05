@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import { fetchItemDetail } from '../services and helpers/fetchItem';
+import { useFetchItemDetail } from '../services and helpers/fetchItem';
 
 import '../../global.css';
 import './card.css';
 
 export default function Card({ item }) {
-  console.log(item.name);
+  console.log(item);
 
   return (
     <button>
