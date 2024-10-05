@@ -1,49 +1,51 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 
-function FetchItemName() {
+// custom hook for fetching item name
+const useFetchItemName = () => {
   const [pokeItem, setPokeItem] = useState([]);
+
   const limit = 10;
   const url = `https://pokeapi.co/api/v2/item?limit=${limit}&offset=0`;
-  // console.log(pokeItem);
 
-  // fetch item name
-  async function fetchData() {
-    await fetch(url, { mode: 'cors' })
+  useEffect(() => {
+    fetch(url, { mode: 'cors' })
       .then((response) => response.json())
       .then((data) => {
         setPokeItem(data.results);
-      })
-      .catch((e) => console.error(e));
-  }
+      });
+  }, [url]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  console.log([pokeItem]);
+  return [pokeItem];
+};
 
-  return pokeItem;
-}
+const fetchItemName = async () => {
+  const limit = 10;
+  const url = `https://pokeapi.co/api/v2/item?limit=${limit}&offset=0`;
+  // console.log(pokeItem);
+  let pokeItems = [];
 
-function FetchItemDetail(itemName) {
-  let pokeItemDetail = [];
-  // const [pokeItemDetail, setPokeItemDetail] = useState([]);
+  // fetch item name
+  await fetch(url, { mode: 'cors' })
+    .then((response) => response.json())
+    .then((data) => {
+      pokeItems = data.results;
+    })
+    .catch((e) => console.error(e));
+
+  return pokeItems;
+};
+
+const fetchItemDetail = async (itemName) => {
   const url = `https://pokeapi.co/api/v2/item/${itemName}`;
 
-  async function fetchItemPrice() {
-    await fetch(url, { mode: 'cors' })
-      .then((response) => response.json())
-      .then((data) => {
-        pokeItemDetail = data;
-        console.log(pokeItemDetail);
-      })
-      .catch((e) => console.log(e));
-  }
+  await fetch(url, { mode: 'cors' })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      return data;
+    })
+    .catch((e) => console.log(e));
+};
 
-  useEffect(() => {
-    fetchItemPrice();
-  }, []);
-
-  // console.log(pokeItemDetail);
-  return pokeItemDetail;
-}
-
-export { FetchItemName, FetchItemDetail };
+export { fetchItemName, fetchItemDetail, useFetchItemName };
