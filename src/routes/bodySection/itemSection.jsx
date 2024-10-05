@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  fetchItemName,
-  fetchItemDetail,
-  useFetchItemName,
-} from '../services and helpers/fetchItem';
+import { useFetchItemName } from '../services and helpers/fetchItem';
 
 import Card from './card';
 import PropTypes from 'prop-types';
@@ -12,50 +8,31 @@ import '../../global.css';
 import './itemSection.css';
 
 export default function ItemSection() {
-  // const [pokeItemDetail, setPokeItemDetail] = useState([]);
-  const [pokeItems] = useFetchItemName();
+  useEffect(() => {
+    const items = useFetchItemName();
+  }, []);
 
-  // version 1
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const limit = 10;
-  //     const url = `https://pokeapi.co/api/v2/item?limit=${limit}&offset=0`;
-  //     // console.log(pokeItem);
+  const PokeItems = async () => {
+    const items = await useFetchItemName();
+    console.log(items);
+    return items;
+  };
 
-  //     // fetch item name
-  //     await fetch(url, { mode: 'cors' })
-  //       .then((response) => response.json())
-  //       .then((data) => {
-  //         console.log(data.results);
-  //         setPokeItem(data.results);
-  //       })
-  //       .catch((e) => console.error(e));
-  //   };
+  const items = useFetchItemName;
 
-  //   fetchData();
-  // }, []);
-
-  // version 2
-  // useEffect(() => {
-  //   (async () => {
-  //     const data = await fetchItemName();
-  //     console.log(data);
-  //     setPokeItem(data);
-  //     console.log(pokeItem);
-  //   })();
-  // }, []);
-
-  // console.log(pokeItem);
+  PokeItems();
 
   return (
     <>
       <div className='itemSection'>
+        <h1>This is the item section</h1>
         <ul className='itemGridContainer'>
-          {pokeItems &&
-            Object.values(pokeItems).map((item) => {
-              console.log(item);
-              return <Card item={item} key={item.id} className='itemCard' />;
-            })}
+          <h1>This is inside the grid container</h1>
+          {Object.values(items).map((item) => {
+            console.log(item);
+            console.log('This is the card in the item section');
+            return <Card item={item} key={item.id} className='itemCard' />;
+          })}
         </ul>
       </div>
     </>
@@ -63,5 +40,5 @@ export default function ItemSection() {
 }
 
 ItemSection.propTypes = {
-  item: PropTypes.object,
+  PokeItems: PropTypes.object,
 };
