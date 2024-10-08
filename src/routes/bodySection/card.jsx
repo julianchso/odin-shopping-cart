@@ -5,14 +5,17 @@ import '../../global.css';
 import './card.css';
 
 export default function Card({ item }) {
-  console.log(item);
+  // console.log(item);
 
   return (
     <button>
       <li>
         {/* <div className='cardImg'>{itemDetail.sprites.default}</div> */}
         <div className='cardName'>{item.name}</div>
-        <div className='cardPrice'>{item.cost}</div>
+        <div className='cardName'>
+          <img src={item.sprites.default} />
+        </div>
+        <div className='cardPrice'>{`$${item.cost}`}</div>
       </li>
     </button>
   );
