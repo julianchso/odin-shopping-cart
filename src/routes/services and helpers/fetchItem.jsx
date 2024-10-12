@@ -23,7 +23,7 @@ const useFetchItemDetail = () => {
   const pokeItemDetailURL = [];
 
   function pokeItemDetailURLTemp() {
-    for (let i = 1; i < POKE_API_LIMIT; i++) {
+    for (let i = 1; i <= POKE_API_LIMIT; i++) {
       pokeItemDetailURL.push(`${POKE_API_URL_BASE}/${i}`);
     }
     // console.log(pokeItemDetailURL);
@@ -33,23 +33,24 @@ const useFetchItemDetail = () => {
   pokeItemDetailURLTemp();
 
   useEffect(() => {
-    Promise.all(
-      pokeItemDetailURL.map((url) => {
-        return fetch(url, { mode: 'cors' })
-          .then((response) => {
-            return response.json();
-          })
-          .then((data) => {
-            setPokeItemDetail([...pokeItemDetail, data]);
-            console.log(pokeItemDetail);
-          });
-      })
-    );
+    const requests = pokeItemDetailURL.map((url) => {
+      return fetch(url, { mode: 'cors' })
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => ({
+          name: data.name,
+          id: data.id,
+          src: data.sprites.default,
+          price: data.cost,
+          category: data.category,
+        }));
+    });
+
+    Promise.all(requests).then((responses) => setPokeItemDetail(responses));
   }, []);
 
-  console.log(pokeItemDetail);
   return pokeItemDetail;
-  // const url = `${POKE_API_URL_BASE}/${id}`;
 };
 
 export { useFetchItemName, useFetchItemDetail };

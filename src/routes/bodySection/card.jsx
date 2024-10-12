@@ -5,19 +5,23 @@ import '../../global.css';
 import './card.css';
 
 export default function Card({ item }) {
-  // console.log(item);
-
   return (
-    <button>
+    <div className='card'>
       <li>
-        {/* <div className='cardImg'>{itemDetail.sprites.default}</div> */}
         <div className='cardName'>{item.name}</div>
-        <div className='cardName'>
-          <img src={item.sprites.default} />
+        <div className='cardImg'>
+          <img src={item.src} />
         </div>
-        <div className='cardPrice'>{`$${item.cost}`}</div>
+        <div className='cardPrice'>{`$${item.price}`}</div>
       </li>
-    </button>
+
+      <div>
+        <button type='button'>-</button>
+        <input type='number' />
+        <button type='button'>+</button>
+        <button type='button'>Add to Cart</button>
+      </div>
+    </div>
   );
 }
 
