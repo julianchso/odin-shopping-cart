@@ -1,0 +1,26 @@
+.cardCtn {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cardName {
+  margin: 0 auto;
+}
+
+.cardPrice {
+  padding-bottom: 5px;
+}
+
+.inputQtyCtn {
+  display: flex;
+  justify-content: center;
+}
+
+.inputQty {
+  width: 25%;
+}
+
+.addToCartBtn {
+  margin: 10px;
+}

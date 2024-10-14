@@ -1,3 +1,9 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 button {
   cursor: pointer;
   text-decoration: none;
@@ -11,4 +17,8 @@ ul {
 
 li {
   background: none;
+}
+
+.center {
+  margin: 0 auto;
 }
