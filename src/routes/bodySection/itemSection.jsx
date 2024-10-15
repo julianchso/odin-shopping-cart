@@ -15,7 +15,6 @@ export default function ItemSection() {
       <div className='itemSection'>
         <ul className='itemGridContainer'>
           {Object.values(pokeItemDetail).map((item) => {
-            console.log(item);
             return <Card item={item} key={item.id} className='itemCard' />;
           })}
         </ul>

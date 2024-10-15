@@ -7,27 +7,28 @@ import './card.css';
 import { useSearchParams } from 'react-router-dom';
 
 export default function Card({ item }) {
-  // const Quantity = () => {
-  //   const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(0);
+  console.log(qty);
 
-  //   decrementQty = () => {
-  //     if (qty <= 0) {
-  //       setQty(0);
-  //     } else {
-  //       setQty(qty - 1);
-  //     }
-  //   };
+  const decrementQty = () => {
+    if (qty <= 0) {
+      setQty(0);
+    } else {
+      setQty(qty - 1);
+    }
+  };
 
-  //   incrementQty = () => {
-  //     setQty(qty + 1);
-  //   };
+  const incrementQty = () => {
+    setQty(qty + 1);
+  };
 
-  //   function onChange(e) {
-  //     const val = e.target.value;
+  const displayVal = () => {};
 
-  //     return val <= 0 ? setQty(0) : setQty(val);
-  //   }
-  // };
+  function onChange(e) {
+    const val = e.target.value;
+
+    return val <= 0 ? setQty(0) : setQty(val);
+  }
 
   return (
     <div className='cardCtn'>
@@ -38,15 +39,13 @@ export default function Card({ item }) {
       <div className='cardPrice center'>{`$${item.price}`}</div>
 
       <div className='inputQtyCtn'>
-        <button type='button'>-</button>
-        {/* <button type='button' onClick={this.decrementQty}>
+        <button type='button' onClick={decrementQty}>
           -
-        </button> */}
+        </button>
         <input className='inputQty' type='number' />
-        <button type='button'>+</button>
-        {/* <button type='button' onClick={this.incrementQty}>
+        <button type='button' onClick={incrementQty}>
           +
-        </button> */}
+        </button>
       </div>
       <button type='button' className='addToCartBtn'>
         Add to Cart
