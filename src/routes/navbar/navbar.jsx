@@ -21,9 +21,11 @@ export default function Navbar() {
         </div>
         <div className='navbarRight'>
           <NavbarSearch />
-          <button className='cartBtn'>
-            <FontAwesomeIcon icon={faCartShopping} />
-          </button>
+          <Link to={`cart`}>
+            <button className='cartBtn'>
+              <FontAwesomeIcon icon={faCartShopping} />
+            </button>
+          </Link>
         </div>
       </nav>
     </>

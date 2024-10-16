@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Root from './routes/root';
 import Home from './routes/home';
 import Shop from './routes/shop';
+import Cart from './routes/cart';
 
 import './reset.css';
 import './global.css';
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/shop',
         element: <Shop />,
+      },
+      {
+        path: '/cart',
+        element: <Cart />,
       },
     ],
   },

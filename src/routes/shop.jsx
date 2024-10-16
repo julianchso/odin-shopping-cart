@@ -4,7 +4,7 @@ import Sidebar from './sidebar/sidebar';
 import '../reset.css';
 import './shop.css';
 
-export default function shop() {
+export default function Shop() {
   return (
     <div>
       <div className='shop'>

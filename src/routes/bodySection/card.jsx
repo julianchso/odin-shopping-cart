@@ -1,14 +1,13 @@
 import PropTypes from 'prop-types';
 import { useFetchItemDetail } from '../services and helpers/fetchItem';
 import { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import '../../global.css';
 import './card.css';
-import { useSearchParams } from 'react-router-dom';
 
 export default function Card({ item }) {
   const [qty, setQty] = useState(0);
-  console.log(qty);
 
   const decrementQty = () => {
     if (qty <= 0) {
@@ -22,11 +21,8 @@ export default function Card({ item }) {
     setQty(qty + 1);
   };
 
-  const displayVal = () => {};
-
-  function onChange(e) {
-    const val = e.target.value;
-
+  function changeQty(e) {
+    const val = Number(e.target.value);
     return val <= 0 ? setQty(0) : setQty(val);
   }
 
@@ -42,7 +38,7 @@ export default function Card({ item }) {
         <button type='button' onClick={decrementQty}>
           -
         </button>
-        <input className='inputQty' type='number' />
+        <input className='inputQty' type='number' onChange={(e) => changeQty(e)} value={qty} />
         <button type='button' onClick={incrementQty}>
           +
         </button>
