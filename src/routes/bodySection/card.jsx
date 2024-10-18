@@ -1,13 +1,17 @@
 import PropTypes from 'prop-types';
-import { useFetchItemDetail } from '../services and helpers/fetchItem';
 import { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 import '../../global.css';
 import './card.css';
 
+Card.propTypes = {
+  item: PropTypes.object,
+};
+
 export default function Card({ item }) {
   const [qty, setQty] = useState(0);
+  const { getItemQty, increaseQty, decreaseQty, removeFromCart } = useShoppingCart();
 
   const decrementQty = () => {
     if (qty <= 0) {
@@ -23,11 +27,13 @@ export default function Card({ item }) {
 
   function changeQty(e) {
     const val = Number(e.target.value);
+    console.log(val);
     return val <= 0 ? setQty(0) : setQty(val);
   }
 
   return (
     <div className='cardCtn'>
+      <div className='center'>{item.id}</div>
       <div className='cardName center'>{item.name}</div>
       <div className='cardImg center'>
         <img className='center' src={item.src} />
@@ -35,11 +41,11 @@ export default function Card({ item }) {
       <div className='cardPrice center'>{`$${item.price}`}</div>
 
       <div className='inputQtyCtn'>
-        <button type='button' onClick={decrementQty}>
+        <button type='button' onClick={() => decreaseQty(item.id)}>
           -
         </button>
         <input className='inputQty' type='number' onChange={(e) => changeQty(e)} value={qty} />
-        <button type='button' onClick={incrementQty}>
+        <button type='button' onClick={() => increaseQty(item.id)}>
           +
         </button>
       </div>
@@ -49,7 +55,3 @@ export default function Card({ item }) {
     </div>
   );
 }
-
-Card.propTypes = {
-  item: PropTypes.object,
-};

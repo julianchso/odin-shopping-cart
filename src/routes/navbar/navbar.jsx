@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
+import NavbarSearch from './navbarSearch';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import NavbarSearch from './navbarSearch';
+
 import '../../app.css';
 import './navbar.css';
 
