@@ -15,6 +15,7 @@ export function ShoppingCartProvider({ children }) {
   // }
 
   function increaseQty(id) {
+    console.log('increaseQty');
     setCart((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }];
@@ -28,9 +29,11 @@ export function ShoppingCartProvider({ children }) {
         });
       }
     });
+    console.log(cart);
   }
 
   function decreaseQty(id) {
+    console.log('decreaseQty');
     setCart((currItems) => {
       // TODO: remove item if quantity is 1
       if (currItems.find((item) => item.id === id).quantity == 1) {
@@ -46,9 +49,12 @@ export function ShoppingCartProvider({ children }) {
         });
       }
     });
+    console.log(cart);
   }
 
   function setQty(id, qty) {
+    console.log('setQty');
+
     setCart((currItems) => {
       if (currItems.find((item) => item.id === id)) {
         return [...currItems, { id, quantity: qty }];
@@ -57,19 +63,29 @@ export function ShoppingCartProvider({ children }) {
   }
 
   function removeFromCart(id) {
+    console.log('removeFromCart');
+
     setCart((currItems) => {
       return currItems.filter((item) => item.id !== id);
     });
   }
 
+  const providerValue = {
+    increaseQty,
+    decreaseQty,
+    setQty,
+    removeFromCart,
+  };
+  // console.log(typeof increaseQty);
+  // console.log(providerValue);
+
   return (
-    <ShoppingCartContext.Provider value={{ increaseQty, decreaseQty, setQty, removeFromCart }}>
-      {children}
-    </ShoppingCartContext.Provider>
+    <>
+      <ShoppingCartContext.Provider value={providerValue}>{children}</ShoppingCartContext.Provider>
+    </>
   );
 }
 
-ShoppingCartProvider.propTypes = {
-  children: PropTypes.ReactNode,
-  // ReactNode is given to the children property inside react
-};
+// ShoppingCartProvider.propTypes = {
+//   children: PropTypes.func,
+// };

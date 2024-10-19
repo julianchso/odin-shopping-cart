@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { useShoppingCart } from '../context/ShoppingCartContext';
+import { ShoppingCartProvider, useShoppingCart } from '../context/ShoppingCartContext';
 
 import '../../global.css';
 import './card.css';
@@ -32,26 +32,28 @@ export default function Card({ item }) {
   }
 
   return (
-    <div className='cardCtn'>
-      <div className='center'>{item.id}</div>
-      <div className='cardName center'>{item.name}</div>
-      <div className='cardImg center'>
-        <img className='center' src={item.src} />
-      </div>
-      <div className='cardPrice center'>{`$${item.price}`}</div>
+    <ShoppingCartProvider>
+      <div className='cardCtn'>
+        <div className='center'>{item.id}</div>
+        <div className='cardName center'>{item.name}</div>
+        <div className='cardImg center'>
+          <img className='center' src={item.src} />
+        </div>
+        <div className='cardPrice center'>{`$${item.price}`}</div>
 
-      <div className='inputQtyCtn'>
-        <button type='button' onClick={() => decreaseQty(item.id)}>
-          -
-        </button>
-        <input className='inputQty' type='number' onChange={(e) => changeQty(e)} value={qty} />
-        <button type='button' onClick={() => increaseQty(item.id)}>
-          +
+        <div className='inputQtyCtn'>
+          <button type='button' onClick={() => decrementQty(item.id)}>
+            -
+          </button>
+          <input className='inputQty' type='number' onChange={(e) => changeQty(e)} value={qty} />
+          <button type='button' onClick={() => incrementQty(item.id)}>
+            +
+          </button>
+        </div>
+        <button type='button' className='addToCartBtn'>
+          Add to Cart
         </button>
       </div>
-      <button type='button' className='addToCartBtn'>
-        Add to Cart
-      </button>
-    </div>
+    </ShoppingCartProvider>
   );
 }
