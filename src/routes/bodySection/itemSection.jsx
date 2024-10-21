@@ -1,4 +1,4 @@
-import { useFetchItemName, useFetchItemDetail } from '../services and helpers/fetchItem';
+import { useFetchItemDetail } from '../services and helpers/fetchItem';
 import { ShoppingCartProvider } from '../context/ShoppingCartContext';
 
 import Card from './card';
@@ -12,15 +12,13 @@ export default function ItemSection() {
 
   return (
     <>
-      <ShoppingCartProvider>
-        <div className='itemSection'>
-          <ul className='itemGridContainer'>
-            {Object.values(pokeItemDetail).map((item) => {
-              return <Card item={item} key={item.id} className='itemCard' />;
-            })}
-          </ul>
-        </div>
-      </ShoppingCartProvider>
+      <div className='itemSection'>
+        <ul className='itemGridContainer'>
+          {Object.values(pokeItemDetail).map((item) => {
+            return <Card item={item} key={item.id} className='itemCard' />;
+          })}
+        </ul>
+      </div>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import NavbarSearch from './navbarSearch';
+import { useShoppingCart } from '../context/ShoppingCartContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +9,7 @@ import '../../app.css';
 import './navbar.css';
 
 export default function Navbar() {
+  const { openCart, cartQuantity } = useShoppingCart();
   return (
     <>
       <nav className='navbar'>
@@ -23,11 +25,10 @@ export default function Navbar() {
         </div>
         <div className='navbarRight'>
           <NavbarSearch />
-          <Link to={`cart`}>
-            <button className='cartBtn'>
-              <FontAwesomeIcon icon={faCartShopping} />
-            </button>
-          </Link>
+          <button className='cartBtn' onClick={openCart}>
+            <FontAwesomeIcon icon={faCartShopping} />
+            {cartQuantity}
+          </button>
         </div>
       </nav>
     </>

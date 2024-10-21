@@ -1,4 +1,5 @@
-import { useState, createContext, useContext } from 'react';
+import { useState, createContext, useContext, useEffect } from 'react';
+import { ShoppingCart } from '../shoppingCart';
 import PropTypes from 'prop-types';
 
 export const ShoppingCartContext = createContext({});
@@ -8,13 +9,25 @@ export function useShoppingCart() {
 }
 
 export function ShoppingCartProvider({ children }) {
+  const [isOpen, setIsOpen] = useState(false);
   const [cart, setCart] = useState([]);
 
-  // function getItemQty(id) {
-  //   return cart.find((item) => item.id === id) ? qty : 0;
-  // }
+  const cartQuantity = cart.reduce((quantity, item) => item.quantity + quantity, 0);
 
-  function increaseQty(id) {
+  const openCart = () => {
+    setIsOpen(true);
+    console.log('cart is open');
+  };
+  const closeCart = () => {
+    setIsOpen(false);
+    console.log('cart is closed');
+  };
+
+  function getCartQty(id) {
+    return cart.find((item) => item.id === id) ? item.quantity : 0;
+  }
+
+  function increaseCartQty(id) {
     console.log('increaseQty');
     setCart((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
@@ -32,7 +45,7 @@ export function ShoppingCartProvider({ children }) {
     console.log(cart);
   }
 
-  function decreaseQty(id) {
+  function decreaseCartQty(id) {
     console.log('decreaseQty');
     setCart((currItems) => {
       // TODO: remove item if quantity is 1
@@ -52,12 +65,20 @@ export function ShoppingCartProvider({ children }) {
     console.log(cart);
   }
 
-  function setQty(id, qty) {
-    console.log('setQty');
-
+  function addShopQtyToCart(id, shopQty) {
     setCart((currItems) => {
-      if (currItems.find((item) => item.id === id)) {
-        return [...currItems, { id, quantity: qty }];
+      // console.log(currItems);
+      console.log(currItems);
+      if (!currItems.find((item) => item.id === id)) {
+        return [...currItems, { id, quantity: shopQty }];
+      } else {
+        return currItems.map((item) => {
+          if (item.id === id) {
+            return { ...item, quantity: item.quantity + shopQty };
+          } else {
+            return item;
+          }
+        });
       }
     });
   }
@@ -71,21 +92,32 @@ export function ShoppingCartProvider({ children }) {
   }
 
   const providerValue = {
-    increaseQty,
-    decreaseQty,
-    setQty,
+    getCartQty,
+    increaseCartQty,
+    decreaseCartQty,
+    addShopQtyToCart,
     removeFromCart,
+    openCart,
+    closeCart,
+    // cartItems,
+    cartQuantity,
   };
-  // console.log(typeof increaseQty);
-  // console.log(providerValue);
 
   return (
     <>
-      <ShoppingCartContext.Provider value={providerValue}>{children}</ShoppingCartContext.Provider>
+      <ShoppingCartContext.Provider value={providerValue}>
+        {children}
+        <ShoppingCart isOpen={isOpen} />
+      </ShoppingCartContext.Provider>
     </>
   );
 }
 
-// ShoppingCartProvider.propTypes = {
-//   children: PropTypes.func,
-// };
+ShoppingCartProvider.propTypes = {
+  openCart: PropTypes.func,
+  closeCart: PropTypes.func,
+  children: PropTypes.object,
+  cartQuantity: PropTypes.number,
+  cartItems: PropTypes.array,
+  isOpen: PropTypes.bool,
+};
