@@ -41,7 +41,7 @@ const useFetchItemDetail = () => {
         .then((data) => ({
           name: data.name,
           id: data.id,
-          src: data.sprites.default,
+          imgSrc: data.sprites.default,
           price: data.cost,
           category: data.category,
         }));

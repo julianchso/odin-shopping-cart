@@ -9,7 +9,7 @@ import '../../app.css';
 import './navbar.css';
 
 export default function Navbar() {
-  const { openCart, cartQuantity } = useShoppingCart();
+  const { openCart, closeCart, cartQuantity } = useShoppingCart();
   return (
     <>
       <nav className='navbar'>

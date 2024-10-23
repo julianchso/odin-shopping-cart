@@ -1,4 +1,4 @@
-import { useState, createContext, useContext, useEffect } from 'react';
+import { useState, createContext, useContext } from 'react';
 import { ShoppingCart } from '../shoppingCart';
 import PropTypes from 'prop-types';
 
@@ -18,6 +18,7 @@ export function ShoppingCartProvider({ children }) {
     setIsOpen(true);
     console.log('cart is open');
   };
+
   const closeCart = () => {
     setIsOpen(false);
     console.log('cart is closed');
@@ -65,12 +66,12 @@ export function ShoppingCartProvider({ children }) {
     console.log(cart);
   }
 
-  function addShopQtyToCart(id, shopQty) {
+  function addShopQtyToCart(name, id, shopQty, img, price) {
     setCart((currItems) => {
       // console.log(currItems);
       console.log(currItems);
       if (!currItems.find((item) => item.id === id)) {
-        return [...currItems, { id, quantity: shopQty }];
+        return [...currItems, { name, id, quantity: shopQty, img, price }];
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
@@ -99,6 +100,7 @@ export function ShoppingCartProvider({ children }) {
     removeFromCart,
     openCart,
     closeCart,
+    cart,
     // cartItems,
     cartQuantity,
   };

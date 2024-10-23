@@ -17,21 +17,17 @@ export default function Card({ item }) {
   const decrementQty = () => {
     if (qty <= 0) {
       setQty(0);
-      console.log(qty);
     } else {
       setQty(qty - 1);
-      console.log(qty);
     }
   };
 
   const incrementQty = () => {
     setQty(qty + 1);
-    console.log(qty);
   };
 
   function inputQty(e) {
     const val = Number(e.target.value);
-    console.log(val);
     return val <= 0 ? setQty(0) : setQty(val);
   }
 
@@ -40,7 +36,7 @@ export default function Card({ item }) {
       <div className='center'>{item.id}</div>
       <div className='cardName center'>{item.name}</div>
       <div className='cardImg center'>
-        <img className='center' src={item.src} />
+        <img className='center' src={item.imgSrc} />
       </div>
       <div className='cardPrice center'>{`$${item.price}`}</div>
 
@@ -53,7 +49,11 @@ export default function Card({ item }) {
           +
         </button>
       </div>
-      <button type='button' className='addToCartBtn' onClick={() => addShopQtyToCart(item.id, qty)}>
+      <button
+        type='button'
+        className='addToCartBtn'
+        onClick={() => addShopQtyToCart(item.name, item.id, qty, item.imgSrc, item.price)}
+      >
         Add to Cart
       </button>
     </div>

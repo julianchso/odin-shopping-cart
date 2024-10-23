@@ -1,8 +1,9 @@
+import { useEffect, useState } from 'react';
 import { useFetchItemDetail } from '../services and helpers/fetchItem';
-import { ShoppingCartProvider } from '../context/ShoppingCartContext';
+// import { usePokeItemDetail } from '../context/PokeItemContext';
+import PropTypes from 'prop-types';
 
 import Card from './card';
-import PropTypes from 'prop-types';
 
 import '../../global.css';
 import './itemSection.css';
@@ -23,6 +24,6 @@ export default function ItemSection() {
   );
 }
 
-// ItemSection.propTypes = {
-//   pokeItems: PropTypes.object,
-// };
+ItemSection.propTypes = {
+  pokeItemDetail: PropTypes.object,
+};
