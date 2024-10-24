@@ -1,6 +1,6 @@
 import { useShoppingCart } from '../routes/context/ShoppingCartContext';
 // import { usePokeItemDetail } from '../routes/context/PokeItemContext';
-import { formatCurrency, formatUnit } from '../utils/formatCurrency';
+import { formatCurrency, formatUnit } from '../utils/formatNumber';
 
 // export function CartItemCard(name, id, quantity, imgSrc, price) {
 export function CartItemCard(item) {
@@ -10,16 +10,18 @@ export function CartItemCard(item) {
   // console.log(item);
 
   if (item == null) return null;
-  console.log(item);
 
   const totalPrice = formatCurrency(item.quantity * item.price);
 
   return (
     <>
-      <div>{item.name}</div>
-      <img src={item.img} />
-      <div>{formatUnit(item.quantity)}</div>
+      <div>
+        <div>{item.name}</div>
+        <div>{item.category}</div>
+        <img src={item.img} />
+      </div>
       <div>{formatCurrency(item.price)}</div>
+      <div>{`Qty: ${formatUnit(item.quantity)}`}</div>
       <div>{totalPrice}</div>
     </>
   );

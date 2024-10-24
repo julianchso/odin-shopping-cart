@@ -4,9 +4,7 @@ import Home from './routes/home';
 import Shop from './routes/shop';
 import { ShoppingCart } from './routes/shoppingCart';
 
-import './reset.css';
-import './global.css';
-import './app.css';
+import './css/global.css';
 
 const router = createBrowserRouter([
   {
@@ -25,10 +23,10 @@ const router = createBrowserRouter([
         path: '/shop',
         element: <Shop />,
       },
-      // {
-      //   path: '/cart',
-      //   element: <ShoppingCart />,
-      // },
+      {
+        path: '/cart',
+        element: <ShoppingCart />,
+      },
     ],
   },
 ]);

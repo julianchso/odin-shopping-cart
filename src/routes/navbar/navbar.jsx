@@ -5,9 +5,9 @@ import { useShoppingCart } from '../context/ShoppingCartContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
-import '../../app.css';
-import '../../global.css';
 import './navbar.css';
+import '../../css/app.css';
+import '../../css/global.css';
 
 export default function Navbar() {
   const { openCart, closeCart, cartQuantity } = useShoppingCart();
@@ -26,10 +26,16 @@ export default function Navbar() {
         </div>
         <div className='navbarRight'>
           <NavbarSearch />
-          <button className='cartBtn' onClick={openCart}>
+          {/* <button className='cartBtn' onClick={openCart}>
             <FontAwesomeIcon icon={faCartShopping} />
             {cartQuantity}
-          </button>
+          </button> */}
+          <Link to={`cart`}>
+            <button className='cartBtn' onClick={openCart}>
+              <FontAwesomeIcon icon={faCartShopping} />
+              {cartQuantity}
+            </button>
+          </Link>
         </div>
       </nav>
     </>

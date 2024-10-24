@@ -1,3 +1,4 @@
+// format currency
 const CURRENCY_FORMATTER = new Intl.NumberFormat(undefined, {
   currency: 'USD',
   style: 'currency',
@@ -5,14 +6,17 @@ const CURRENCY_FORMATTER = new Intl.NumberFormat(undefined, {
   minimumFractionDigits: 0,
 });
 
-const UNIT_FORMATTER = new Intl.NumberFormat({
-  style: 'unit',
-});
-
 export function formatCurrency(number) {
   return CURRENCY_FORMATTER.format(number);
 }
 
+// format number
+const UNIT_FORMATTER = new Intl.NumberFormat({
+  style: 'unit',
+});
+
 export function formatUnit(number) {
   return UNIT_FORMATTER.format(number);
 }
+
+// format name

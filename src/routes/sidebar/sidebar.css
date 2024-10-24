@@ -3,5 +3,6 @@
   flex-direction: column;
   height: 100%;
   width: 20%;
-  background-color: red;
+  background-color: grey;
+  border-radius: 10px;
 }

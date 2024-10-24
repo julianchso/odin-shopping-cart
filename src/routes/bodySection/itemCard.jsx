@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useShoppingCart } from '../context/ShoppingCartContext';
-import { formatCurrency } from '../../utils/formatCurrency';
+import { formatCurrency } from '../../utils/formatNumber';
 
-import '../../global.css';
-import './card.css';
+import '../../css/global.css';
+import './itemCard.css';
 
-Card.propTypes = {
+ItemCard.propTypes = {
   item: PropTypes.object,
 };
 
-export default function Card({ item }) {
+export default function ItemCard({ item }) {
   const [qty, setQty] = useState(0);
   const { getItemQty, increaseQty, decreaseQty, addShopQtyToCart, removeFromCart } =
     useShoppingCart();
@@ -34,7 +34,6 @@ export default function Card({ item }) {
 
   return (
     <div className='cardCtn'>
-      <div className='center'>{item.id}</div>
       <div className='cardName center'>{item.name}</div>
       <div className='cardImg center'>
         <img className='center' src={item.imgSrc} />
@@ -53,7 +52,9 @@ export default function Card({ item }) {
       <button
         type='button'
         className='addToCartBtn'
-        onClick={() => addShopQtyToCart(item.name, item.id, qty, item.imgSrc, item.price)}
+        onClick={() =>
+          addShopQtyToCart(item.name, item.id, qty, item.imgSrc, item.price, item.category.name)
+        }
       >
         Add to Cart
       </button>

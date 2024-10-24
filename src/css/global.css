@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans');
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+body {
+  font-family: 'Nunito Sans', Arial, Helvetica, sans-serif !important;
+}
+
+.contentWrapper {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+button {
+  cursor: pointer;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  background: none;
+}
+
+/* Logo */
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+/* Titles */
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Names, Secondary Titles, Navbar Links */
+h3 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Names */
+h4 {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-600);
+}
+
+/* Price */
+h5 {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+img {
+  height: 75px;
+  width: 75px;
+}

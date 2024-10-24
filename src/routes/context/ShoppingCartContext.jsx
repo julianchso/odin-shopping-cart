@@ -1,5 +1,5 @@
 import { useState, createContext, useContext } from 'react';
-import { ShoppingCart } from '../shoppingCart';
+import { ShoppingCart } from '../ShoppingCart';
 import PropTypes from 'prop-types';
 
 export const ShoppingCartContext = createContext({});
@@ -66,12 +66,14 @@ export function ShoppingCartProvider({ children }) {
     console.log(cart);
   }
 
-  function addShopQtyToCart(name, id, shopQty, img, price) {
+  function addShopQtyToCart(name, id, shopQty, img, price, category) {
+    if (shopQty === 0) return;
+
     setCart((currItems) => {
       // console.log(currItems);
       console.log(currItems);
       if (!currItems.find((item) => item.id === id)) {
-        return [...currItems, { name, id, quantity: shopQty, img, price }];
+        return [...currItems, { name, id, quantity: shopQty, img, price, category }];
       } else {
         return currItems.map((item) => {
           if (item.id === id) {
@@ -109,7 +111,7 @@ export function ShoppingCartProvider({ children }) {
     <>
       <ShoppingCartContext.Provider value={providerValue}>
         {children}
-        <ShoppingCart isOpen={isOpen} />
+        {/* <ShoppingCart isOpen={isOpen} /> */}
       </ShoppingCartContext.Provider>
     </>
   );
