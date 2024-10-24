@@ -42,7 +42,7 @@ const useFetchItemDetail = () => {
           name: data.name,
           id: data.id,
           imgSrc: data.sprites.default,
-          price: data.cost,
+          price: data.cost == 0 ? (data.cost = 9999) : data.cost,
           category: data.category,
         }));
     });

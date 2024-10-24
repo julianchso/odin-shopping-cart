@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 
 import '../../app.css';
+import '../../global.css';
 import './navbar.css';
 
 export default function Navbar() {

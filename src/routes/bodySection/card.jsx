@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useShoppingCart } from '../context/ShoppingCartContext';
+import { formatCurrency } from '../../utils/formatCurrency';
 
 import '../../global.css';
 import './card.css';
@@ -38,7 +39,7 @@ export default function Card({ item }) {
       <div className='cardImg center'>
         <img className='center' src={item.imgSrc} />
       </div>
-      <div className='cardPrice center'>{`$${item.price}`}</div>
+      <div className='cardPrice center'>{`${formatCurrency(item.price)}`}</div>
 
       <div className='inputQtyCtn'>
         <button type='button' onClick={() => decrementQty(item.id)}>
