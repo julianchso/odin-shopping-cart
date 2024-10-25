@@ -32,10 +32,12 @@ export default function Navbar() {
             {cartQuantity}
           </button> */}
           <Link to={`cart`}>
-            <button className='cartBtn' onClick={openCart}>
-              <FontAwesomeIcon className='cartBtnIcon' icon={faCartShopping} />
-              {cartQuantity}
-            </button>
+            <div className='cartBtnCtn'>
+              <button className='cartBtn' onClick={openCart}>
+                <FontAwesomeIcon className='cartBtnIcon' icon={faCartShopping} />
+              </button>
+              <div className='cartQuantity'>{cartQuantity}</div>
+            </div>
           </Link>
         </div>
       </nav>

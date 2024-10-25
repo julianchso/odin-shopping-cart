@@ -48,14 +48,41 @@
   align-items: center;
 }
 
+.cartBtnCtn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 10px;
+  padding: 10px;
+  border: solid 2px var(--pokeColourYellow2);
+  background-color: var(--pokeColourYellow1);
+  border-radius: 10px;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: var(--pokeColourYellow2);
+  }
+}
+
 .cartBtn {
   background: none;
   border: none;
-  padding: 20px 20px;
+  display: flex;
+  align-items: center;
 }
 
 .cartBtnIcon {
   height: 25px;
+  color: #fff;
+  /* margin-right: 10px; */
+
+  &:hover {
+    text-shadow: 10px 10px 10px #ccc;
+  }
+}
+
+.cartQuantity {
+  text-decoration: none;
 }
 
 #pokeStoreLogo {

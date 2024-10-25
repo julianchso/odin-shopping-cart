@@ -25,22 +25,22 @@
   border-radius: 5px;
   position: relative;
   transition: 0.5s;
-}
 
-#checkoutBtn:after {
-  content: '\00bb';
-  position: relative;
-  opacity: 0;
-  /* margin: 0 auto; */
-  right: -15px;
-  transition: 0.5s;
-}
+  &:after {
+    content: '\00bb';
+    position: relative;
+    opacity: 0;
+    /* margin: 0 auto; */
+    right: -15px;
+    transition: 0.5s;
+  }
 
-#checkoutBtn:hover {
-  padding-right: 20px;
-}
+  &:hover {
+    padding-right: 20px;
+  }
 
-#checkoutBtn:hover:after {
-  opacity: 1;
-  right: -3px;
+  &:hover:after {
+    opacity: 1;
+    right: -3px;
+  }
 }
