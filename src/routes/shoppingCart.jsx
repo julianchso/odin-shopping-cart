@@ -4,6 +4,8 @@ import { CartItemCard } from '../component/cartItems';
 
 import { Offcanvas } from 'react-bootstrap';
 
+import './ShoppingCart.css';
+
 export function ShoppingCart(isOpen) {
   const { openCart, closeCart, cart } = useShoppingCart();
   console.log(cart);
@@ -12,12 +14,25 @@ export function ShoppingCart(isOpen) {
 
   return (
     <>
-      <div className='cartItemCtn'>
-        {cart.map((item) => (
-          <CartItemCard key={item.id} {...item} />
-        ))}
+      <div className='pageCtn'>
+        <div className='cartHeader'>
+          <h2>Item</h2>
+          <h2>Price</h2>
+          <h2>Quantity</h2>
+          <h2>Total</h2>
+        </div>
+        <div>
+          {cart.map((item) => (
+            <CartItemCard key={item.id} {...item} />
+          ))}
+        </div>
       </div>
 
+      <button type='submit' id='checkoutBtn'>
+        <span>Checkout</span>
+      </button>
+
+      {/* TODO: Get Offcanvas to work */}
       {/* <Offcanvas show={true} onHide={closeCart} placement={'end'}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Shopping Cart</Offcanvas.Title>

@@ -15,6 +15,7 @@ export default function Navbar() {
     <>
       <nav className='navbar'>
         <div className='navbarLeft'>
+          <img src='src/assets/pokeStoreLogo.png' alt='pokeStoreLogo' id='pokeStoreLogo' />
           <ul className='navbarBtn'>
             <li>
               <Link to={`home`}>Home</Link>
@@ -32,7 +33,7 @@ export default function Navbar() {
           </button> */}
           <Link to={`cart`}>
             <button className='cartBtn' onClick={openCart}>
-              <FontAwesomeIcon icon={faCartShopping} />
+              <FontAwesomeIcon className='cartBtnIcon' icon={faCartShopping} />
               {cartQuantity}
             </button>
           </Link>

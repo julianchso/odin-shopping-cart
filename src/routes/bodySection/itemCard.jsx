@@ -36,7 +36,7 @@ export default function ItemCard({ item }) {
     <div className='cardCtn'>
       <div className='cardName center'>{item.name}</div>
       <div className='cardImg center'>
-        <img className='center' src={item.imgSrc} />
+        <img className='center shopItem' src={item.imgSrc} />
       </div>
       <div className='cardPrice center'>{`${formatCurrency(item.price)}`}</div>
 

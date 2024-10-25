@@ -20,3 +20,6 @@ export function formatUnit(number) {
 }
 
 // format name
+export function formatName(name) {
+  return name.replace('-', ' ').replace(/(?:^|\s)\S/g, (a) => a.toUpperCase());
+}

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { POKE_API_URL_BASE, POKE_API_LIMIT, POKE_API_OFFSET } from '../../configs/config.js';
 
+import { formatName } from '../../utils/formatNumber.jsx';
+
 // custom hook for fetching item name
 const useFetchItemName = () => {
   const [pokeItem, setPokeItem] = useState([]);
@@ -39,10 +41,12 @@ const useFetchItemDetail = () => {
           return response.json();
         })
         .then((data) => ({
-          name: data.name,
+          // name: formatName(data.name),
+          name: formatName(data.name),
           id: data.id,
           imgSrc: data.sprites.default,
           price: data.cost == 0 ? (data.cost = 9999) : data.cost,
+          // category: formatName(data.category),
           category: data.category,
         }));
     });

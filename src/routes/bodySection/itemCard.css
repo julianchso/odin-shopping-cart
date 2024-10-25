@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: antiquewhite;
+  background-color: var(--pokeColourYellow1);
   border-radius: 10px;
   padding: 10px;
 }
@@ -26,4 +26,9 @@
 
 .addToCartBtn {
   margin: 10px;
+}
+
+.shopItem {
+  height: 75px;
+  width: 75px;
 }
