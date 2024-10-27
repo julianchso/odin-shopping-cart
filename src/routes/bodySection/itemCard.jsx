@@ -32,6 +32,11 @@ export default function ItemCard({ item }) {
     return val <= 0 ? setQty(0) : setQty(val);
   }
 
+  function addToCart(item, qty) {
+    addShopQtyToCart(item.name, item.id, qty, item.imgSrc, item.price, item.category.name);
+    setQty(0);
+  }
+
   return (
     <div className='cardCtn'>
       <div className='cardName center'>{item.name}</div>
@@ -41,21 +46,23 @@ export default function ItemCard({ item }) {
       <div className='cardPrice center'>{`${formatCurrency(item.price)}`}</div>
 
       <div className='inputQtyCtn'>
-        <button type='button' onClick={() => decrementQty(item.id)}>
+        <button
+          type='button'
+          className='changeQtyBtn changeQtyBtnDecrease'
+          onClick={() => decrementQty(item.id)}
+        >
           -
         </button>
         <input className='inputQty' type='number' onChange={(e) => inputQty(e)} value={qty} />
-        <button type='button' onClick={() => incrementQty(item.id)}>
+        <button
+          type='button'
+          className='changeQtyBtn changeQtyBtnIncrease'
+          onClick={() => incrementQty(item.id)}
+        >
           +
         </button>
       </div>
-      <button
-        type='button'
-        className='addToCartBtn'
-        onClick={() =>
-          addShopQtyToCart(item.name, item.id, qty, item.imgSrc, item.price, item.category.name)
-        }
-      >
+      <button type='button' className='addToCartBtn ' onClick={() => addToCart(item, qty)}>
         Add to Cart
       </button>
     </div>

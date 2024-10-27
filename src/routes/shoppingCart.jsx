@@ -27,7 +27,7 @@ export function ShoppingCart(isOpen) {
           ))}
         </div>
       </div>
-
+      {/* TODO: add total */}
       <button type='submit' id='checkoutBtn'>
         <span>Checkout</span>
       </button>
