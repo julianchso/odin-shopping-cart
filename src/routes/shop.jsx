@@ -8,7 +8,7 @@ export default function Shop() {
   return (
     <div>
       <div className='shop'>
-        <Sidebar />
+        {/* <Sidebar /> */}
         <ItemSection />
       </div>
     </div>
