@@ -1,3 +1,13 @@
+.pageCtn {
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+}
+
+.navBarSearch {
+  padding: 0 50px;
+}
+
 .itemSection {
   height: 100%;
   width: 100%;

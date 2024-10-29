@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import { useFetchItemDetail } from '../services and helpers/fetchItem';
-// import { usePokeItemDetail } from '../context/PokeItemContext';
 import PropTypes from 'prop-types';
 
 import ItemCard from './itemCard';
@@ -13,12 +11,14 @@ export default function ItemSection() {
 
   return (
     <>
-      <div className='itemSection'>
-        <ul className='itemGridContainer'>
-          {Object.values(pokeItemDetail).map((item) => {
-            return <ItemCard item={item} key={item.id} className='itemCard' />;
-          })}
-        </ul>
+      <div className='pageCtn'>
+        <div className='itemSection'>
+          <ul className='itemGridContainer'>
+            {Object.values(pokeItemDetail).map((item) => {
+              return <ItemCard item={item} key={item.id} className='itemCard' />;
+            })}
+          </ul>
+        </div>
       </div>
     </>
   );

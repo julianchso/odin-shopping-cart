@@ -27,10 +27,6 @@ export default function Navbar() {
         </div>
         <div className='navbarRight'>
           <NavbarSearch />
-          {/* <button className='cartBtn' onClick={openCart}>
-            <FontAwesomeIcon icon={faCartShopping} />
-            {cartQuantity}
-          </button> */}
           <Link to={`cart`}>
             <div className='cartBtnCtn'>
               <button className='cartBtn' onClick={openCart}>
