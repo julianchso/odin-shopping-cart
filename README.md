@@ -53,6 +53,6 @@ This app is a pokemon featured store and cart. It helped me with learning React 
 
 Julian So: [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chjulianso/)
 
-Project Link: [https://github.com/julianchso/odin-CV-application](https://github.com/julianchso/odin-CV-application)
+Project Link: [https://github.com/julianchso/shopping-cart-pokemon](https://github.com/julianchso/shopping-cart-pokemon)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
