@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 50px;
+  justify-content: center;
 }
 
 .navBarSearch {
@@ -10,8 +11,6 @@
 
 .itemSection {
   height: 100%;
-  width: 100%;
-  max-width: 1600px;
   padding: 0 50px;
   /* font-family: 'Nunito Sans', Arial, Helvetica, sans-serif; */
 }
@@ -19,7 +18,7 @@
 .itemGridContainer {
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-template-rows: auto;
   grid-gap: 18px;
 }

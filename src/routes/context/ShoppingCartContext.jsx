@@ -2,6 +2,8 @@ import { useState, createContext, useContext } from 'react';
 import { ShoppingCart } from '../ShoppingCart';
 import PropTypes from 'prop-types';
 
+import { formatCurrency } from '../../utils/formatNumber';
+
 export const ShoppingCartContext = createContext({});
 
 export function useShoppingCart() {
@@ -14,14 +16,21 @@ export function ShoppingCartProvider({ children }) {
 
   const cartQuantity = cart.reduce((quantity, item) => item.quantity + quantity, 0);
 
+  const cartTotal = formatCurrency(
+    cart.reduce((total, cartItem) => {
+      const item = cart.find((i) => i.id === cartItem.id);
+      return total + item.price * cartItem.quantity;
+    }, 0)
+  );
+
+  console.log(cartTotal);
+
   const openCart = () => {
     setIsOpen(true);
-    console.log('cart is open');
   };
 
   const closeCart = () => {
     setIsOpen(false);
-    console.log('cart is closed');
   };
 
   function getCartQty(id) {
@@ -29,7 +38,6 @@ export function ShoppingCartProvider({ children }) {
   }
 
   function increaseCartQty(id) {
-    console.log('increaseQty');
     setCart((currItems) => {
       if (currItems.find((item) => item.id === id) == null) {
         return [...currItems, { id, quantity: 1 }];
@@ -103,8 +111,8 @@ export function ShoppingCartProvider({ children }) {
     openCart,
     closeCart,
     cart,
-    // cartItems,
     cartQuantity,
+    cartTotal,
   };
 
   return (

@@ -11,7 +11,6 @@ export function CartItemCard(item) {
   if (item == null) return null;
 
   const totalPrice = formatCurrency(item.quantity * item.price);
-  console.log(formatName(item.category));
 
   return (
     <>

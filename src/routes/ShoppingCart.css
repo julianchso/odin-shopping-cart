@@ -12,6 +12,15 @@
   color: var(--pokeColourBlue3);
 }
 
+.cartTotal {
+  display: block;
+  font-weight: 700;
+  font-size: 28px;
+  float: right;
+  padding: 20px 0;
+  color: aliceblue;
+}
+
 #checkoutBtn {
   float: right;
   background-color: brown;
@@ -22,8 +31,10 @@
   color: aliceblue;
   border: none;
   font-weight: 700;
+  font-size: 16px;
   border-radius: 5px;
-  position: relative;
+  display: block;
+  clear: both;
   transition: 0.5s;
 
   &:after {

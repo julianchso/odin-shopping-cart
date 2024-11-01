@@ -1,4 +1,5 @@
 .navbarSearch {
+  margin: 20px auto;
   border-radius: 10px;
   background-color: rgba(220, 220, 220);
   display: flex;

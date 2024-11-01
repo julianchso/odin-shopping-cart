@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import NavbarSearch from './navbarSearch';
+// import NavbarSearch from './navbarSearch';
 import { useShoppingCart } from '../context/ShoppingCartContext';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -26,7 +26,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div className='navbarRight'>
-          <NavbarSearch />
+          {/* <NavbarSearch /> */}
           <Link to={`cart`}>
             <div className='cartBtnCtn'>
               <button className='cartBtn' onClick={openCart}>

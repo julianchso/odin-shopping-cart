@@ -1,34 +1,41 @@
-import { useState, useContext, createContext } from 'react';
-import PropTypes from 'prop-types';
+// import { useState, useContext, createContext } from 'react';
+// import PropTypes from 'prop-types';
+// import { useFetchItemDetail } from '../services and helpers/fetchItem';
 
-export const SearchBarContext = createContext({});
+// export const SearchBarContext = createContext({});
 
-export function useSearchBar() {
-  return useContext(SearchBarContext);
-}
+// export function useSearchBar() {
+//   return useContext(SearchBarContext);
+// }
 
-export function SearchBarProvider({ children }) {
-  const [query, setQuery] = useState('');
+// export function SearchBarProvider({ children }) {
+//   const [query, setQuery] = useState('');
+//   const items = useFetchItemDetail();
 
-  const searchValue = () => {
-    (e) => setQuery(e.target.value);
-  };
+//   console.log(items);
 
-  const providerValue = {
-    searchValue,
-    query,
-  };
+//   const filteredItems = items.name.filter((item) => {
+//     return item.toLowerCase().includes(query.toLowerCase());
+//   });
 
-  return (
-    <>
-      <SearchBarContext.Provider value={providerValue}>
-        {children}
-        {/* <ShoppingCart isOpen={isOpen} /> */}
-      </SearchBarContext.Provider>
-    </>
-  );
-}
+//   const searchValue = (e) => {
+//     setQuery(e.target.value);
+//   };
 
-SearchBarProvider.propTypes = {
-  children: PropTypes.object,
-};
+//   const providerValue = {
+//     searchValue,
+//     query,
+//   };
+
+//   console.log(`query: ${query}`);
+
+//   return (
+//     <>
+//       <SearchBarContext.Provider value={providerValue}>{children}</SearchBarContext.Provider>
+//     </>
+//   );
+// }
+
+// SearchBarProvider.propTypes = {
+//   children: PropTypes.object,
+// };

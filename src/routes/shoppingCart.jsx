@@ -5,12 +5,19 @@ import { CartItemCard } from '../component/cartItems';
 import { Offcanvas } from 'react-bootstrap';
 
 import './ShoppingCart.css';
+import { formatCurrency } from '../utils/formatNumber';
 
 export function ShoppingCart(isOpen) {
-  const { openCart, closeCart, cart } = useShoppingCart();
+  const { openCart, closeCart, cart, cartTotal } = useShoppingCart();
   console.log(cart);
 
   cart.map((item) => console.log(item));
+
+  const checkout = () => {
+    alert(
+      `Successfully checked out ${cartTotal} worth of items! (If this were a real store it would lead to the payments page).`
+    );
+  };
 
   return (
     <>
@@ -28,7 +35,8 @@ export function ShoppingCart(isOpen) {
         </div>
       </div>
       {/* TODO: add total */}
-      <button type='submit' id='checkoutBtn'>
+      <div className='cartTotal'>Total: {cartTotal}</div>
+      <button type='submit' id='checkoutBtn' onClick={checkout}>
         <span>Checkout</span>
       </button>
 
