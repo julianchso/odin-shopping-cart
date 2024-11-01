@@ -18,7 +18,7 @@
 
 ![app](src/media/app.jpg)
 
-### [Live Demo](https://julianchso.github.io/odin-shopping-cart/)
+### [Live Demo](https://julianchso.github.io/shopping-cart-pokemon/)
 
 _(ctrl+click link above to open in new window)_
 
