@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useShoppingCart } from './context/ShoppingCartContext';
+import { useShoppingCart } from '../routes/context/ShoppingCartContext';
 import { CartItemCard } from '../component/cartItems';
 
 import { Offcanvas } from 'react-bootstrap';

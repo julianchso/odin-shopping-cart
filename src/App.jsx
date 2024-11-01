@@ -2,7 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Root from './routes/root';
 import Home from './routes/home';
 import Shop from './routes/shop';
-import { ShoppingCart } from './routes/shoppingCart';
+import { ShoppingCart } from './component/ShoppingCart';
 
 import './css/global.css';
 

@@ -1,5 +1,5 @@
 import { useState, createContext, useContext } from 'react';
-import { ShoppingCart } from '../ShoppingCart';
+import { ShoppingCart } from '../../component/ShoppingCart';
 import PropTypes from 'prop-types';
 
 import { formatCurrency } from '../../utils/formatNumber';
