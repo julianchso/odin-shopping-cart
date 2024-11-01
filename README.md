@@ -24,9 +24,18 @@ _(ctrl+click link above to open in new window)_
 
 This app is a pokemon featured store and cart. It helped me with learning React components and how to structure my code.
 
+### Features
+
 - fetches items from the PokéAPI
 - add items to cart
 - delete items from cart
+- basic lookup search bar
+
+### Features to Come!
+
+- localStorage for items fetched from PokéAPI
+- Multi-page available for easy of navigation
+- Search items by category
 
 <!-- BUILT WITH -->
 
