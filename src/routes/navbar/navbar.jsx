@@ -15,7 +15,7 @@ export default function Navbar() {
     <>
       <nav className='navbar'>
         <div className='navbarLeft'>
-          <img src='src/assets/pokeStoreLogo.png' alt='pokeStoreLogo' id='pokeStoreLogo' />
+          <img src='src/media/pokeStoreLogo.png' alt='pokeStoreLogo' id='pokeStoreLogo' />
           <ul className='navbarBtn'>
             <li>
               <Link to={`home`}>Home</Link>

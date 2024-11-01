@@ -11,7 +11,7 @@ ItemCard.propTypes = {
 };
 
 export default function ItemCard({ item }) {
-  const [qty, setQty] = useState(0);
+  const [qty, setQty] = useState(1);
   const { getItemQty, increaseQty, decreaseQty, addShopQtyToCart, removeFromCart } =
     useShoppingCart();
 
@@ -34,7 +34,7 @@ export default function ItemCard({ item }) {
 
   function addToCart(item, qty) {
     addShopQtyToCart(item.name, item.id, qty, item.imgSrc, item.price, item.category.name);
-    setQty(0);
+    setQty(1);
   }
 
   return (
