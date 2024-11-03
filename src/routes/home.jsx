@@ -3,7 +3,7 @@ import './home.css';
 export default function Home() {
   return (
     <div className='homeContainer'>
-      <img src='src/assets/pokeStoreLogo.png' alt='pokeStoreLogo' id='pokeStoreLogoHomePage' />
+      <img src='src/media/pokeStoreLogo.png' alt='pokeStoreLogo' id='pokeStoreLogoHomePage' />
 
       <h2>Gotta catch &apos;em all</h2>
       <h3>

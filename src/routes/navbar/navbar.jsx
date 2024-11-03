@@ -18,16 +18,16 @@ export default function Navbar() {
           <img src='src/media/pokeStoreLogo.png' alt='pokeStoreLogo' id='pokeStoreLogo' />
           <ul className='navbarBtn'>
             <li>
-              <Link to={`home`}>Home</Link>
+              <Link to={`/shopping-cart-pokemon/home`}>Home</Link>
             </li>
             <li>
-              <Link to={`shop`}>Shop</Link>
+              <Link to={`/shopping-cart-pokemon/shop`}>Shop</Link>
             </li>
           </ul>
         </div>
         <div className='navbarRight'>
           {/* <NavbarSearch /> */}
-          <Link to={`cart`}>
+          <Link to={`/shopping-cart-pokemon/cart`}>
             <div className='cartBtnCtn'>
               <button className='cartBtn' onClick={openCart}>
                 <FontAwesomeIcon className='cartBtnIcon' icon={faCartShopping} />
