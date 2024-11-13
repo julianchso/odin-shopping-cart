@@ -31,11 +31,15 @@ This app is a pokemon featured store and cart. It helped me with learning React 
 - delete items from cart
 - basic lookup search bar
 
-### Features to Come!
+### Features to Come (and hurdles to overcome and possible solutions)!
 
-- localStorage for items fetched from PokéAPI
-- Multi-page available for easy of navigation
+- Storing for items fetched from PokéAPI
+  - Since there are a total of 2,229 items (and hundreds of thousands of lines of code in the JSON file), it would not be practical to fetch all data at once. Not only would loading the data take a long time and decrease the user experience, I would also be banned from using pokéAPI.
+  - **Possible Solution**: Use node/express to GET the data and store in a MongoDB database.
+- Pagination/lazy-loading
+  - This feature will allow for a faster user experience while allowing the filter function to filter all items.
 - Search items by category
+  - This feature will be in the sidebar for quicker navigation of items.
 
 <!-- BUILT WITH -->
 
